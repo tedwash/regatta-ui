@@ -9,39 +9,6 @@ body, html {
     background: #e5e5e5;
 }
 
-.grey {
-    background: #e5e5e5;
-
-    .list {
-        padding: 10px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-
-        li {
-            background: white;
-            border-bottom: 1px solid #ccc;
-        }
-    }
-}
-
-.separate {
-    .list {
-        li {
-            margin-bottom: 10px;
-            border-radius: 4px;
-        }
-    }
-}
-
-.shadowed {
-    .list {
-        li {
-            border: none;
-            box-shadow: 0 2px 0 #ccc;
-        }
-    }
-}
-
 ul {
     margin: 0;
     padding: 0;
@@ -78,6 +45,10 @@ ul {
                     display: block;
                     font-size: 11px;
                     text-transform: uppercase;
+                }
+                
+                .eventTime {
+                    float: right;
                 }
             }
         }
@@ -125,7 +96,8 @@ a {
     margin: 0 auto;
 
     @media @phone {
-        width:auto; padding: 0 10px;
+        width:auto; 
+        padding: 0 10px;
     }
 }
 
@@ -141,7 +113,8 @@ header {
         display: inline-block;
 
         @media @phone {
-            padding-left:0; padding-right:0;
+            padding-left:0;
+            padding-right:0;
         }
     }
 }

@@ -1,30 +1,39 @@
-<div class="viewTitle">{{event.name}}</div>
+<div class="viewHeader">
+    <span class="viewTitle">{{event.name}}</div>
+</div>
 <ul class="group">
     <li ng-show="races.Heat">
         <ul class="list">
             <li ng-repeat="race in races.Heat" class="race{{race.type}}">
-                <a href="#/event/{{race.event_id}}/race/{{race.id}}">{{race.type}} {{$index + 1}}<span class="eventNote">{{race.advancement}}</span></a>
+                <a href="#/event/{{race.event_id}}/race/{{race.id}}">{{race.displayName}} {{race.event_type_index}}<span class="eventTime">{{race.timestamp | date:'EEE h:mma'}}</span><span class="eventNote">{{race.advancement}}</span></a>
             </li>
         </ul>
     </li>
     <li ng-show="races.Rep">
         <ul class="list">
             <li ng-repeat="race in races.Rep" class="race{{race.type}}">
-                <a href="#/event/{{race.event_id}}/race/{{race.id}}">{{race.type}} {{$index + 1}}<span class="eventNote">{{race.advancement}}</span></a>
+                <a href="#/event/{{race.event_id}}/race/{{race.id}}">{{race.displayName}} {{race.event_type_index}}<span class="eventNote">{{race.advancement}}</span></a>
             </li>
         </ul>
     </li>
     <li ng-show="races.Semi">
         <ul class="list">
             <li ng-repeat="race in races.Semi" class="race{{race.type}}">
-                <a href="#/event/{{race.event_id}}/race/{{race.id}}">{{race.type}} {{$index + 1}}<span class="eventNote">{{race.advancement}}</span></a>
+                <a href="#/event/{{race.event_id}}/race/{{race.id}}">{{race.displayName}} {{race.event_type_index}}<span class="eventNote">{{race.advancement}}</span></a>
             </li>
         </ul>
     </li>
     <li ng-show="races.Final">
         <ul class="list">
             <li ng-repeat="race in races.Final" class="race{{race.type}}">
-                <a href="#/event/{{race.event_id}}/race/{{race.id}}">{{race.type}}<span class="eventNote eventTrophy">{{event.trophy}}</span></a>
+                <a href="#/event/{{race.event_id}}/race/{{race.id}}">{{race.displayName}}<span ng-show="event.trophy" class="eventNote eventTrophy"><i class="fa fa-trophy"></i> {{event.trophy}}</span></a>
+            </li>
+        </ul>
+    </li>
+    <li ng-show="races.PetiteFinal">
+        <ul class="list">
+            <li ng-repeat="race in races.PetiteFinal" class="race{{race.type}}">
+                <a href="#/event/{{race.event_id}}/race/{{race.id}}">{{race.displayName}}<span class="eventNote"></span></a>
             </li>
         </ul>
     </li>

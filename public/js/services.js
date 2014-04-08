@@ -50,6 +50,12 @@ racingServices.service("eventDetailService", function ($http, $q) {
         $http({ method: "GET", url: BASE_URL + "/events/" + id + ".json" }).success(function (data) {
             var groupedData = {};
             angular.forEach(data, function (race, i) {
+                var type = race.type
+                if (type.indexOf("2nd") != -1) type = type.replace("2nd", "Petite");
+                race.displayName = type;
+                if (type.indexOf(" ") != -1) type = type.replace(" ", "");
+
+                race.type = type;
                 if (!groupedData[race.type]) groupedData[race.type] = [race];
                 else groupedData[race.type].push(race);
             });

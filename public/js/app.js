@@ -1,5 +1,5 @@
 var racingApp = angular.module("racingApp", ["ngRoute", "racingControllers", "racingServices"]);
-var racingControllers = angular.module("racingControllers", []);
+var racingControllers = angular.module("racingControllers", ["LocalStorageModule"]);
 var racingServices = angular.module("racingServices", []);
 
 racingApp.run(['$location', '$rootScope', function($location, $rootScope) {
