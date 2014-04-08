@@ -1,0 +1,7 @@
+<div class="viewTitle">Race {{race.id}}</div>
+<ul class="list">
+    <li ng-repeat="lane in race.lanes" ng-class="{laneEmpty:!lane.university_id}">
+        <a ng-show="lane.university_id" href="#/events"><span class="laneNumber">Lane {{lane.index}}</span> {{lane.university_id}}</a>
+        <span ng-show="!lane.university_id" class="placeholder"><span class="laneNumber">Lane {{lane.index}}</span></span>
+    </li>
+</ul>

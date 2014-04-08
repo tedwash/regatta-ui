@@ -1,0 +1,31 @@
+<div class="viewTitle">{{event.name}}</div>
+<ul class="group">
+    <li ng-show="races.Heat">
+        <ul class="list">
+            <li ng-repeat="race in races.Heat" class="race{{race.type}}">
+                <a href="#/event/{{race.event_id}}/race/{{race.id}}">{{race.type}} {{$index + 1}}<span class="eventNote">{{race.advancement}}</span></a>
+            </li>
+        </ul>
+    </li>
+    <li ng-show="races.Rep">
+        <ul class="list">
+            <li ng-repeat="race in races.Rep" class="race{{race.type}}">
+                <a href="#/event/{{race.event_id}}/race/{{race.id}}">{{race.type}} {{$index + 1}}<span class="eventNote">{{race.advancement}}</span></a>
+            </li>
+        </ul>
+    </li>
+    <li ng-show="races.Semi">
+        <ul class="list">
+            <li ng-repeat="race in races.Semi" class="race{{race.type}}">
+                <a href="#/event/{{race.event_id}}/race/{{race.id}}">{{race.type}} {{$index + 1}}<span class="eventNote">{{race.advancement}}</span></a>
+            </li>
+        </ul>
+    </li>
+    <li ng-show="races.Final">
+        <ul class="list">
+            <li ng-repeat="race in races.Final" class="race{{race.type}}">
+                <a href="#/event/{{race.event_id}}/race/{{race.id}}">{{race.type}}<span class="eventNote eventTrophy">{{event.trophy}}</span></a>
+            </li>
+        </ul>
+    </li>
+</ul>

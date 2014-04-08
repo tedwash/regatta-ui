@@ -1,0 +1,135 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  background: #e5e5e5;
+}
+.grey {
+  background: #e5e5e5;
+}
+.grey .list {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.grey .list li {
+  background: white;
+  border-bottom: 1px solid #ccc;
+}
+.separate .list li {
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+.shadowed .list li {
+  border: none;
+  box-shadow: 0 2px 0 #ccc;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ul.list {
+  background: white;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+ul.list li {
+  border-bottom: 1px solid #eee;
+}
+ul.list li.laneEmpty {
+  background: #f5f5f5;
+  color: #aaa;
+}
+ul.list li:first-child {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+ul.list li:last-child {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+ul.list li a,
+ul.list li .placeholder {
+  padding: 10px;
+  display: block;
+}
+ul.list li a .eventNote,
+ul.list li .placeholder .eventNote {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+.viewTitle {
+  font-size: 24px;
+  padding: 15px 0;
+  font-weight: 200;
+}
+.eventID {
+  font-weight: bold;
+}
+.eventFilter {
+  padding: 10px;
+}
+input[type=text] {
+  border: none;
+  padding: 10px;
+  margin: 0;
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  background: #e5e5e5;
+  border-radius: 3px;
+  box-sizing: border-box;
+  width: 100%;
+}
+input[type=text]:focus {
+  outline: none;
+}
+a {
+  color: #0099cc;
+  text-decoration: none;
+}
+.container {
+  width: 1024px;
+  margin: 0 auto;
+}
+@media only screen and (max-width:500px) and (orientation:portrait), only screen and (max-height:500px) and (orientation:landscape) {
+  .container {
+    width: auto;
+    padding: 0 10px;
+  }
+}
+header {
+  background: #444;
+}
+header .siteTitle {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  display: inline-block;
+}
+@media only screen and (max-width:500px) and (orientation:portrait), only screen and (max-height:500px) and (orientation:landscape) {
+  header .siteTitle {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+button {
+  background: #666;
+  border: 1px solid #444;
+  color: white;
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  border-radius: 3px;
+}
+button.selected {
+  background: #0099cc;
+}
+.clearfix {
+  clear: both;
+}
