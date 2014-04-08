@@ -14,6 +14,13 @@ ul {
     padding: 0;
     list-style: none;
 
+    li.listHeader {
+        text-transform: uppercase;
+        color: #aaa;
+        font-size: 12px;
+        padding: 5px 0;
+    }
+
     &.list {
         background: white;
         border-radius: @borderRadius;
@@ -41,12 +48,17 @@ ul {
                 padding: 10px;
                 display: block;
 
-                .eventNote {
-                    display: block;
+                .smallCaps {
                     font-size: 11px;
                     text-transform: uppercase;
                 }
-                
+
+                .eventNote {
+                    @media @phone {
+                        display: block;
+                    }
+                }
+
                 .eventTime {
                     float: right;
                 }
@@ -55,10 +67,13 @@ ul {
     }
 }
 
-.viewTitle {
-    font-size: 24px;
-    padding: 15px 0;
-    font-weight: 200;
+.viewHeader {
+    padding: 15px 0 10px 0;
+
+    .viewTitle {
+        font-size: 24px;
+        font-weight: 200;
+    }
 }
 
 .eventID {
@@ -87,7 +102,7 @@ input[type=text] {
 }
 
 a {
-    color: #0099cc;
+    color: @linkColor;
     text-decoration: none;
 }
 
@@ -95,14 +110,16 @@ a {
     width: 1024px;
     margin: 0 auto;
 
+    @media @tablet{
+        width:auto; padding: 0 10px;
+    }
     @media @phone {
-        width:auto; 
-        padding: 0 10px;
+        width:auto; padding: 0 10px;
     }
 }
 
 header {
-    background: #444;
+    background: #002663;
 
     .siteTitle {
         font-size: 20px;
@@ -113,8 +130,7 @@ header {
         display: inline-block;
 
         @media @phone {
-            padding-left:0;
-            padding-right:0;
+            padding-left:0; padding-right:0;
         }
     }
 }

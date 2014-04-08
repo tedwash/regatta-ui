@@ -10,20 +10,18 @@ racingControllers.controller("EventDetailCtrl", ["$rootScope", "$scope", "$route
             $scope.event = data;
             $rootScope.title = data.name;
         });
+        $scope.today = new Date();
     } ]);
 
-racingControllers.controller("RaceDetailCtrl", ["$scope", "$routeParams", "raceDetailService", "localStorageService", 
+    racingControllers.controller("RaceDetailCtrl", ["$scope", "$routeParams", "raceDetailService", "localStorageService",
     function ($scope, $routeParams, raceDetailService, localStorageService) {
         var eventId = $routeParams.eventId;
         var raceId = $routeParams.raceId;
         var pageId = eventId + "" + raceId;
         if (localStorageService.get("pageId") == pageId) $scope.showReload = true;
         else $scope.showReload = false;
-        console.dir(localStorageService.add("pageId", pageId));
         raceDetailService.getRaceDetail(eventId, raceId, function (eventId, raceId, data) { $scope.race = data; });
-
-        $scope.reloadResults = function(){
-            console.dir("fired");
+        $scope.reloadResults = function () {
             raceDetailService.getRaceDetail($routeParams.eventId, $routeParams.raceId, function (eventId, raceId, data) { $scope.race = data; });
         }
     } ]);

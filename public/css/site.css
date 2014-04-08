@@ -12,6 +12,12 @@ ul {
   padding: 0;
   list-style: none;
 }
+ul li.listHeader {
+  text-transform: uppercase;
+  color: #aaa;
+  font-size: 12px;
+  padding: 5px 0;
+}
 ul.list {
   background: white;
   border-radius: 3px;
@@ -37,19 +43,26 @@ ul.list li .placeholder {
   padding: 10px;
   display: block;
 }
-ul.list li a .eventNote,
-ul.list li .placeholder .eventNote {
-  display: block;
+ul.list li a .smallCaps,
+ul.list li .placeholder .smallCaps {
   font-size: 11px;
   text-transform: uppercase;
+}
+@media only screen and (max-width:500px) and (orientation:portrait), only screen and (max-height:500px) and (orientation:landscape) {
+  ul.list li a .eventNote,
+  ul.list li .placeholder .eventNote {
+    display: block;
+  }
 }
 ul.list li a .eventTime,
 ul.list li .placeholder .eventTime {
   float: right;
 }
-.viewTitle {
+.viewHeader {
+  padding: 15px 0 10px 0;
+}
+.viewHeader .viewTitle {
   font-size: 24px;
-  padding: 15px 0;
   font-weight: 200;
 }
 .eventID {
@@ -74,12 +87,18 @@ input[type=text]:focus {
   outline: none;
 }
 a {
-  color: #0099cc;
+  color: #4385f5;
   text-decoration: none;
 }
 .container {
   width: 1024px;
   margin: 0 auto;
+}
+@media only screen and (min-width:501px) and (max-width:999px) {
+  .container {
+    width: auto;
+    padding: 0 10px;
+  }
 }
 @media only screen and (max-width:500px) and (orientation:portrait), only screen and (max-height:500px) and (orientation:landscape) {
   .container {
@@ -88,7 +107,7 @@ a {
   }
 }
 header {
-  background: #444;
+  background: #002663;
 }
 header .siteTitle {
   font-size: 20px;
