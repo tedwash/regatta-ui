@@ -28,10 +28,11 @@ ul {
 
         li {
             border-bottom: 1px solid #eee;
-
+            
             &.laneEmpty {
                 background: #f5f5f5;
                 color: #aaa;
+                min-height: 39px;
             }
 
             &:first-child {
@@ -47,7 +48,6 @@ ul {
             a, .placeholder {
                 padding: 10px;
                 display: block;
-
                 .smallCaps {
                     font-size: 11px;
                     text-transform: uppercase;
@@ -58,7 +58,11 @@ ul {
                         display: block;
                     }
                 }
-
+                
+                .laneNumber{
+                    display: block;
+                }
+                
                 .eventTime {
                     float: right;
                 }
@@ -149,4 +153,9 @@ button {
 
 .clearfix {
     clear: both;
+}
+
+.reloadButton{
+    float: right;
+    margin-top: 2px;
 }

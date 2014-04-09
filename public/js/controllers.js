@@ -20,6 +20,7 @@ racingControllers.controller("EventDetailCtrl", ["$rootScope", "$scope", "$route
         var pageId = eventId + "" + raceId;
         if (localStorageService.get("pageId") == pageId) $scope.showReload = true;
         else $scope.showReload = false;
+        localStorageService.add("pageId", pageId)
         raceDetailService.getRaceDetail(eventId, raceId, function (eventId, raceId, data) { $scope.race = data; });
         $scope.reloadResults = function () {
             raceDetailService.getRaceDetail($routeParams.eventId, $routeParams.raceId, function (eventId, raceId, data) { $scope.race = data; });
