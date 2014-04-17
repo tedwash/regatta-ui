@@ -5,7 +5,9 @@ racingControllers.controller("EventListCtrl", ["$scope", "eventListService", fun
 racingControllers.controller("EventDetailCtrl", ["$rootScope", "$scope", "$routeParams", "eventDetailService", "eventListService",
     function ($rootScope, $scope, $routeParams, eventDetailService, eventListService) {
         var eventId = $routeParams.eventId;
-        eventDetailService.getRaceList(eventId, function (id, data) { $scope.races = data });
+        eventDetailService.getRaceList(eventId, function (id, data) {
+            $scope.races = data
+        });
         eventListService.getEvent(eventId, function (data) {
             $scope.event = data;
             $rootScope.title = data.name;
@@ -13,7 +15,7 @@ racingControllers.controller("EventDetailCtrl", ["$rootScope", "$scope", "$route
         $scope.today = new Date();
     } ]);
 
-    racingControllers.controller("RaceDetailCtrl", ["$scope", "$routeParams", "raceDetailService", "localStorageService",
+racingControllers.controller("RaceDetailCtrl", ["$scope", "$routeParams", "raceDetailService", "localStorageService",
     function ($scope, $routeParams, raceDetailService, localStorageService) {
         var eventId = $routeParams.eventId;
         var raceId = $routeParams.raceId;

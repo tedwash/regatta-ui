@@ -1,62 +1,21 @@
 <div class="viewHeader">
     <span class="viewTitle">{{event.name}}
 </div>
-</div>
 <ul class="group">
-    <li class="listHeader">Friday</li>
-    <li ng-show="races.Heat">
+
+    <li ng-repeat="level in races | orderBy:level.timestamp">
+        <div ng-show="level.showDay" class="listHeader">{{level.timestamp | date:'EEEE'}}</div>
         <ul class="list">
-            <li ng-repeat="race in races.Heat" class="race{{race.type}}">
-                <a href="#/event/{{race.event_id}}/race/{{race.id}}">
-                    <b>{{race.displayName}} {{race.event_type_index}}</b>
-                    <span class="eventTime">{{race.timestamp | date:'h:mm'}}</span>
-                    <span class="eventNote smallCaps">{{race.advancement}}</span>
+            <li ng-repeat="race in level.races">
+                <a href="#asdf"><b>{{race.type}} <span ng-show="level.races.length > 1">{{race.event_type_index}}</span></b>
+                    <span class="eventNote smallCaps">
+                        <span ng-show="level.type=='Final' && event.trophy"><i class="fa fa-trophy"></i> {{event.trophy}}
+                        </span>
+                        <span ng-show="race.advancement">{{race.advancement}}</span>
+                    </span>
                 </a>
             </li>
         </ul>
     </li>
-    <li ng-show="races.Rep">
-        <ul class="list">
-            <li ng-repeat="race in races.Rep" class="race{{race.type}}">
-                <a href="#/event/{{race.event_id}}/race/{{race.id}}">
-                    <b>{{race.displayName}} {{race.event_type_index}}</b>
-                    <span class="eventTime">{{race.timestamp | date:'h:mm'}}</span>
-                    <span class="eventNote smallCaps">{{race.advancement}}</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="listHeader">Saturday</li>
-    <li ng-show="races.Semi">
-        <ul class="list">
-            <li ng-repeat="race in races.Semi" class="race{{race.type}}">
-                <a href="#/event/{{race.event_id}}/race/{{race.id}}">
-                    <b>{{race.displayName}} {{race.event_type_index}}</b>
-                    <span class="eventTime">{{race.timestamp | date:'h:mm'}}</span>
-                    <span class="eventNote smallCaps">{{race.advancement}}</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li ng-show="races.Final">
-        <ul class="list">
-            <li ng-repeat="race in races.Final" class="race{{race.type}}">
-                <a href="#/event/{{race.event_id}}/race/{{race.id}}">
-                    <b>{{race.displayName}}</b>
-                    <span class="eventTime">{{race.timestamp | date:'h:mm'}}</span>
-                    <span ng-show="event.trophy" class="eventNote smallCaps"><i class="fa fa-trophy"></i> {{event.trophy}}</span></span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li ng-show="races.PetiteFinal">
-        <ul class="list">
-            <li ng-repeat="race in races.PetiteFinal" class="race{{race.type}}">
-                <a href="#/event/{{race.event_id}}/race/{{race.id}}">
-                    <b>{{race.displayName}}</b>
-                    <span class="eventTime">{{race.timestamp | date:'h:mm'}}</span>
-                </a>
-            </li>
-        </ul>
-    </li>
+
 </ul>

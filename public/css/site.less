@@ -9,17 +9,19 @@ body, html {
     background: #e5e5e5;
 }
 
+.listHeader {
+    text-transform: uppercase;
+    color: #aaa;
+    font-size: 12px;
+    padding: 5px 0;
+}
+
 ul {
     margin: 0;
     padding: 0;
     list-style: none;
 
-    li.listHeader {
-        text-transform: uppercase;
-        color: #aaa;
-        font-size: 12px;
-        padding: 5px 0;
-    }
+
 
     &.list {
         background: white;
@@ -28,7 +30,7 @@ ul {
 
         li {
             border-bottom: 1px solid #eee;
-            
+
             &.laneEmpty {
                 background: #f5f5f5;
                 color: #aaa;
@@ -48,6 +50,7 @@ ul {
             a, .placeholder {
                 padding: 10px;
                 display: block;
+
                 .smallCaps {
                     font-size: 11px;
                     text-transform: uppercase;
@@ -58,11 +61,11 @@ ul {
                         display: block;
                     }
                 }
-                
-                .laneNumber{
+
+                .laneNumber {
                     display: block;
                 }
-                
+
                 .eventTime {
                     float: right;
                 }
@@ -114,16 +117,17 @@ a {
     width: 1024px;
     margin: 0 auto;
 
-    @media @tablet{
+    @media @tablet {
         width:auto; padding: 0 10px;
     }
+
     @media @phone {
         width:auto; padding: 0 10px;
     }
 }
 
 header {
-    background: #002663;
+    background: #222;
 
     .siteTitle {
         font-size: 20px;
@@ -152,10 +156,11 @@ button {
 }
 
 .clearfix {
+    display: block;
     clear: both;
 }
 
-.reloadButton{
+.reloadButton {
     float: right;
     margin-top: 2px;
 }

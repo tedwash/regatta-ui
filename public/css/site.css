@@ -7,16 +7,16 @@ html {
   font-size: 16px;
   background: #e5e5e5;
 }
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-ul li.listHeader {
+.listHeader {
   text-transform: uppercase;
   color: #aaa;
   font-size: 12px;
   padding: 5px 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 ul.list {
   background: white;
@@ -112,7 +112,7 @@ a {
   }
 }
 header {
-  background: #002663;
+  background: #222;
 }
 header .siteTitle {
   font-size: 20px;
@@ -139,6 +139,7 @@ button.selected {
   background: #0099cc;
 }
 .clearfix {
+  display: block;
   clear: both;
 }
 .reloadButton {

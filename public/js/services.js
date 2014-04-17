@@ -1,6 +1,34 @@
 var BASE_URL = "https://dl.dropboxusercontent.com/u/3115379/vails_demo";
 var LANE_COUNT = 6;
 
+/*
+racingServices.service("raceListService", function ($http, $q) {
+    var raceListCache;
+
+    var get = function (callback) {
+        $http({ method: "GET", url: BASE_URL + "/races.json" }).success(function (data) {
+            raceListCache = data;
+            return callback(raceListCache);
+        });
+    }
+
+    var sortBy
+
+    var getCurrentRaceIndex = function (races) {
+        var now = new Date();
+        var offsetMins = now.getMinutes() - 5;
+        now.setMinutes(offset);
+        var index;
+
+        while (!index);
+        angular.forEach(races, function (race, i) {
+            if (now <= new Date(race.timestamp)) index = 
+        });
+    }
+
+});
+*/
+
 racingServices.service('eventListService', function ($http, $q) {
     var eventListCache;
 
@@ -48,18 +76,21 @@ racingServices.service("eventDetailService", function ($http, $q) {
     var eventRacesCache = {};
     var get = function (id, callback) {
         $http({ method: "GET", url: BASE_URL + "/events/" + id + ".json" }).success(function (data) {
-            var groupedData = {};
-            angular.forEach(data, function (race, i) {
-                var type = race.type
-                if (type.indexOf("2nd") != -1) type = type.replace("2nd", "Petite");
-                race.displayName = type;
-                if (type.indexOf(" ") != -1) type = type.replace(" ", "");
-
-                race.type = type;
-                if (!groupedData[race.type]) groupedData[race.type] = [race];
-                else groupedData[race.type].push(race);
-            });
-            eventRacesCache[id] = groupedData;
+            var newData = [];
+            var day;
+            for (var key in data.races) {
+                var level = {};
+                level.races = data.races[key];
+                level.timestamp = new Date(level.races[0].timestamp);
+                level.type = key;
+                if (day != level.timestamp.getDay()) {
+                    level.showDay = true;
+                    day = level.timestamp.getDay();
+                }
+                newData.push(level);
+            }
+            console.dir(newData);
+            eventRacesCache[id] = newData;
             return callback(id, eventRacesCache[id]);
         });
     }
