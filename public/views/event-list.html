@@ -1,10 +1,19 @@
 <div class="events">
-
-	<div class="eventFilter">
+	<div class="eventFilter" style="display:none">
 		<input type="text" ng-model="query" placeholder="filter"	/>
 	</div>
+    <div class="listHeader">Upcoming</div>
+	<ul class="list">
+		<li ng-repeat="race in races">
+			<a href="#/events/{{race.event_id}}/races/{{race.id}}">{{race.type}} 
+				<span ng-show="race.type != 'Final' && race.type != 'Petite'">{{race.event_type_index}}</span>
+				<span class="eventTime">{{race.timestamp | date:'h:mm'}}</span>
+				<span class="detailLine smallCaps">{{race.event_name}} ID: {{race.event_id}}</span>
+			</a>
+		</li>
+	</ul>
     <div class="listHeader">Events</div>
 	<ul class="list">
-		<li ng-repeat="event in events | filter:query | orderBy:'id'"><a href="#/event/{{event.id}}"><span class="eventID">{{event.id}}</span> {{event.name}}</a></li>
+		<li ng-repeat="event in events | filter:query | orderBy:'id'"><a href="#/events/{{event.id}}"><b>{{event.id}}</b> {{event.name}}</a></li>
 	</ul>
 </div>

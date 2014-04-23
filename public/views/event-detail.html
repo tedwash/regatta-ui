@@ -3,11 +3,12 @@
 </div>
 <ul class="group">
 
-    <li ng-repeat="level in races | orderBy:level.timestamp">
+    <li ng-repeat="level in races | orderBy:level.timestamp" class="{{level.dayClass}}">
         <div ng-show="level.showDay" class="listHeader">{{level.timestamp | date:'EEEE'}}</div>
         <ul class="list">
             <li ng-repeat="race in level.races">
-                <a href="#asdf"><b>{{race.type}} <span ng-show="level.races.length > 1">{{race.event_type_index}}</span></b>
+                <a href="#/events/{{race.event_id}}/races/{{race.id}}"><b>{{race.type}} <span ng-show="level.races.length > 1">{{race.event_type_index}}</span></b>
+                    <span class="eventTime">{{level.timestamp | date:'H:mm'}}</span>
                     <span class="eventNote smallCaps">
                         <span ng-show="level.type=='Final' && event.trophy"><i class="fa fa-trophy"></i> {{event.trophy}}
                         </span>

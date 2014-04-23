@@ -2,12 +2,14 @@
     <div class="viewTitle">Race {{race.id}}<i class="fa fa-refresh reloadButton" ng-click="reloadResults()" ng-show="showReload"></i></div>
 </div>
 <ul class="list">
-    <li ng-repeat="lane in race.lanes | orderBy:race.place" ng-class="{laneEmpty:!lane.university_id}">
-        <a ng-show="lane.university_id" href="#/events">
-            <img style="float: left" src="https://dl.dropboxusercontent.com/u/3115379/vails_demo/universities/{{lane.university_id}}.png" alt="University {{lane.university_id}}" />
-            University {{lane.university_id}} <span class="laneNumber smallCaps">Lane {{lane.index}}</span>
+    <li ng-repeat="lane in race.lanes | orderBy:lane.place" ng-class="{muted:!lane.university_id}">
+        <a ng-if="lane.university_id" href="#/events">
+            <img ng-if="lane.university_id" class="blade" ng-src="https://dl.dropboxusercontent.com/u/3115379/vails_demo/universities/{{lane.university_id}}.png" alt="{{lane.university_name}}" />
+            <span class="details">
+            	{{lane.university_name}} <span class="detailLine smallCaps">Lane {{lane.index}}</span>
+        	</span>
             <span class="clearfix"></span>
         </a>
-        <span ng-show="!lane.university_id" class="placeholder"><span class="laneNumber smallCaps">Lane {{lane.index}}</span></span>
+        <span ng-if="!lane.university_id" class="placeholder"><span class="laneNumber smallCaps">Lane {{lane.index}}</span></span>
     </li>
 </ul>

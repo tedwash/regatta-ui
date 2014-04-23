@@ -1,33 +1,81 @@
 var BASE_URL = "https://dl.dropboxusercontent.com/u/3115379/vails_demo";
 var LANE_COUNT = 6;
+var OFFSET_MINS = 5;
+var TEST = true;
 
-/*
 racingServices.service("raceListService", function ($http, $q) {
     var raceListCache;
 
     var get = function (callback) {
         $http({ method: "GET", url: BASE_URL + "/races.json" }).success(function (data) {
+            data.sort(dateCompare);
             raceListCache = data;
             return callback(raceListCache);
         });
     }
 
-    var sortBy
+    function dateCompare(a, b) {
+        var da = Date.parse(a.timestamp);
+        var db = Date.parse(b.timestamp);
+        if (da < db) return -1;
+        if (da > db) return 1;
+        return 0;
+    }
 
-    var getCurrentRaceIndex = function (races) {
+    var getCurrentRaces = function (races, count) {
         var now = new Date();
-        var offsetMins = now.getMinutes() - 5;
-        now.setMinutes(offset);
+
+        if (TEST) {
+            now.setYear(2013);
+            now.setMonth(4);
+            now.setDate(10);
+        }
+        var offsetMins = now.getMinutes() - OFFSET_MINS;
+        now.setMinutes(offsetMins);
         var index;
 
-        while (!index);
         angular.forEach(races, function (race, i) {
-            if (now <= new Date(race.timestamp)) index = 
+            var d = Date.parse(race.timestamp);
+            if (now >= d) index = i;
+            race.event_name = "Event Name";
         });
+
+        return races.slice(index, index + count);
+    }
+
+    var getRaceById = function (races, id) {
+        var r;
+        angular.forEach(races, function (race, i) {
+            if (race.id == id) r = race;
+        });
+        return r;
+    }
+
+    return {
+        getUpcomingRaces: function(count, callback){
+            if (raceListCache){
+                return callback(getCurrentRaces(raceListCache, count));  
+            } else {
+                var deferred = $q.defer();
+                get(function (data) { deferred.resolve(data); });
+                deferred.promise.then(function (res) { callback(getCurrentRaces(raceListCache, count)); })
+            } 
+        },
+
+        getRace: function (id, callback) {
+            if (raceListCache) {
+                return callback(getRaceById(raceListCache, id));
+            } else {
+                var deferred = $q.defer();
+                get(function (data) { deferred.resolve(data); });
+                deferred.promise.then(function (res) {
+                    return callback(getRaceById(res, id));
+                });
+            }
+        }
     }
 
 });
-*/
 
 racingServices.service('eventListService', function ($http, $q) {
     var eventListCache;
@@ -78,6 +126,7 @@ racingServices.service("eventDetailService", function ($http, $q) {
         $http({ method: "GET", url: BASE_URL + "/events/" + id + ".json" }).success(function (data) {
             var newData = [];
             var day;
+            var lrClass = "dayRight";
             for (var key in data.races) {
                 var level = {};
                 level.races = data.races[key];
@@ -86,7 +135,10 @@ racingServices.service("eventDetailService", function ($http, $q) {
                 if (day != level.timestamp.getDay()) {
                     level.showDay = true;
                     day = level.timestamp.getDay();
+                    if (lrClass == "dayLeft") lrClass = "dayRight";
+                    else lrClass = "dayLeft";
                 }
+                level.dayClass = lrClass;
                 newData.push(level);
             }
             console.dir(newData);

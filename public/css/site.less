@@ -31,7 +31,7 @@ ul {
         li {
             border-bottom: 1px solid #eee;
 
-            &.laneEmpty {
+            &.muted {
                 background: #f5f5f5;
                 color: #aaa;
                 min-height: 39px;
@@ -50,7 +50,8 @@ ul {
             a, .placeholder {
                 padding: 10px;
                 display: block;
-
+                -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+                
                 .smallCaps {
                     font-size: 11px;
                     text-transform: uppercase;
@@ -62,15 +63,61 @@ ul {
                     }
                 }
 
-                .laneNumber {
-                    display: block;
+                @media @phone {
+                    .detailLine {
+                        display: block;
+                    }
                 }
 
                 .eventTime {
                     float: right;
                 }
+
+                .blade {
+                    width: 40px;
+                    height: 24px;
+                    float:left;
+                    margin-right: 10px;
+                    margin-top: 1px;
+                }
+
+                .details {
+                    float:left;
+                }
+            }
+
+            .placeholder {
+                margin-left: 50px;
+            }
+
+            a:active {
+                background: @linkColor;
+                color: white;
             }
         }
+    }
+}
+
+.dayLeft {
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    padding-right: 20px;
+
+    @media @phone {
+        width: auto;
+        padding-right: inherit;
+        float: none;
+    }
+}
+
+.dayRight {
+    width: 50%;
+    float: right;
+
+    @media @phone {
+        width: auto;
+        float: none;
     }
 }
 
