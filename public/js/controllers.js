@@ -1,10 +1,10 @@
 racingControllers.controller("EventListCtrl", ["$scope", "eventListService", "raceListService", function ($scope, eventListService, raceListService) {
-    eventListService.getEventList(function (data) { 
-        $scope.events = data; 
+    eventListService.getEventList(function (data) {
+        $scope.events = data;
     });
 
-    raceListService.getUpcomingRaces(3, function(rdata){
-            $scope.races = rdata;
+    raceListService.getUpcomingRaces(3, function (rdata) {
+        $scope.races = rdata;
     });
 } ]);
 
@@ -21,7 +21,7 @@ racingControllers.controller("EventDetailCtrl", ["$rootScope", "$scope", "$route
         $scope.today = new Date();
     } ]);
 
-racingControllers.controller("RaceDetailCtrl", ["$scope", "$routeParams", "raceListService", "raceDetailService", "localStorageService",
+    racingControllers.controller("RaceDetailCtrl", ["$scope", "$routeParams", "raceListService", "raceDetailService", "localStorageService",
     function ($scope, $routeParams, raceListService, raceDetailService, localStorageService) {
         var eventId = $routeParams.eventId;
         var raceId = $routeParams.raceId;
@@ -34,5 +34,25 @@ racingControllers.controller("RaceDetailCtrl", ["$scope", "$routeParams", "raceL
             raceDetailService.getRaceDetail($routeParams.eventId, $routeParams.raceId, function (eventId, raceId, data) { $scope.race = data; });
         }
 
+        $scope.toHumanTime = function (ms) {
+            var seconds = (ms / 1000) % 60;
+            seconds = +seconds.toFixed(3);
+            if (seconds <= 10) seconds = "0" + seconds;
 
+            var minutes = Math.floor((ms / (1000 * 60)) % 60);
+            return minutes + ":" + seconds;
+        }
+
+        $scope.placeSuffix = function (place) {
+            switch (place) {
+                case 1:
+                    return "st";
+                case 2:
+                    return "nd";
+                case 3:
+                    return "rd";
+                default:
+                    return "th";
+            }
+        }
     } ]);

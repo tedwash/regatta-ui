@@ -1,15 +1,31 @@
 <div class="viewHeader">
-    <div class="viewTitle">Race {{race.id}}<i class="fa fa-refresh reloadButton" ng-click="reloadResults()" ng-show="showReload"></i></div>
+    <div class="viewTitle">Race {{race.id}}
+        <div class="reloadButton">
+            <button class="btn" ng-show="false" ng-click="reloadResults()"><i class="fa fa-refresh"></i> Refresh</button>
+        </div>
+        <span class="clearfix"></span>
+    </div>
 </div>
-<ul class="list">
-    <li ng-repeat="lane in race.lanes | orderBy:lane.place" ng-class="{muted:!lane.university_id}">
-        <a ng-if="lane.university_id" href="#/events">
-            <img ng-if="lane.university_id" class="blade" ng-src="https://dl.dropboxusercontent.com/u/3115379/vails_demo/universities/{{lane.university_id}}.png" alt="{{lane.university_name}}" />
-            <span class="details">
-            	{{lane.university_name}} <span class="detailLine smallCaps">Lane {{lane.index}}</span>
-        	</span>
-            <span class="clearfix"></span>
-        </a>
-        <span ng-if="!lane.university_id" class="placeholder"><span class="laneNumber smallCaps">Lane {{lane.index}}</span></span>
-    </li>
-</ul>
+<div class="content">
+    <ul class="list">
+        <li ng-repeat="lane in race.lanes | orderBy:'place'" ng-class="{muted:!lane.university_id}">
+            <a ng-if="lane.university_id" href="#/events">
+                <span class="positioning" ng-if="lane.place">
+                    <span class="place">{{lane.place + placeSuffix(lane.place)}}</span>
+                    <span class="time">{{toHumanTime(lane.milliseconds)}}</span>
+                </span>
+                <span class="details">
+                    <span class="university">{{lane.university_name}}</span>
+                    <span class="lane">Lane {{lane.index}}</span>
+                </span>
+                <img class="blade" ng-src="https://dl.dropboxusercontent.com/u/3115379/vails_demo/universities/{{lane.university_id}}.png" alt="{{lane.university_name}}" />
+                <span class="clearfix"></span>
+            </a>
+            <span ng-if="!lane.university_id" class="placeholder"><span class="laneNumber smallCaps">Lane {{lane.index}}</span></span>
+        </li>
+    </ul>
+</div>
+<div class="actions">
+    <a class="btn btn-muted" target="_blank" ng-href="{{race.results_url}}"><i class="fa fa-download"></i> Download</a>
+</div>
+

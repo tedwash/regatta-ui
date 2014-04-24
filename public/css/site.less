@@ -50,11 +50,49 @@ ul {
             a, .placeholder {
                 padding: 10px;
                 display: block;
-                -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
-                
+                -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+
                 .smallCaps {
                     font-size: 11px;
                     text-transform: uppercase;
+                }
+
+                .positioning {
+                    float: left;
+                    width: 25%;
+                    box-sizing: border-box;
+
+                    .place {
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+
+                    .time {
+                        font-size: 12px;
+                        display: block;
+                    }
+                }
+
+                .details {
+                    float:left;
+
+                    .university {
+                        margin: 3px 0;
+                        display: block;
+                        
+                    }
+                    
+                    .lane {
+                        display: block;
+                        font-size: 12px;
+                        text-transform: uppercase;
+                    }
+                }
+
+                .blade {
+                    width: 50px;
+                    float: right;
+                    margin-top: 1px;
                 }
 
                 .eventNote {
@@ -71,18 +109,6 @@ ul {
 
                 .eventTime {
                     float: right;
-                }
-
-                .blade {
-                    width: 40px;
-                    height: 24px;
-                    float:left;
-                    margin-right: 10px;
-                    margin-top: 1px;
-                }
-
-                .details {
-                    float:left;
                 }
             }
 
@@ -105,9 +131,7 @@ ul {
     padding-right: 20px;
 
     @media @phone {
-        width: auto;
-        padding-right: inherit;
-        float: none;
+        width: auto; padding-right: inherit; float: none;
     }
 }
 
@@ -116,8 +140,7 @@ ul {
     float: right;
 
     @media @phone {
-        width: auto;
-        float: none;
+        width: auto; float: none;
     }
 }
 
@@ -190,15 +213,32 @@ header {
     }
 }
 
-button {
-    background: #666;
-    border: 1px solid #444;
+button.btn, a.btn {
+    border: none;
+    margin: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    outline: none;
+    padding: 0 0;
+    display: inline-block;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 14px;
+    padding: 10px 15px;
+    background: #4285f4;
+    background: -webkit-linear-gradient(top,#4387fd,#4683ea);
+    background: linear-gradient(top,#4387fd,#4683ea);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4387fd,endColorstr=#4683ea,GradientType=1);
     color: white;
     font-family: @fontStack;
     border-radius: @borderRadius;
 
     &.selected {
         background: #0099cc;
+    }
+
+    &.btn-muted {
+        background: #aaa;
     }
 }
 
@@ -210,4 +250,18 @@ button {
 .reloadButton {
     float: right;
     margin-top: 2px;
+
+    @media @phone {
+        float:none; margin-top:10px; .btn {
+            width: 100%;
+        }
+    }
+}
+
+.actions {
+    padding: 0 0 10px 0;
+}
+
+.content {
+    min-height: 250px;
 }

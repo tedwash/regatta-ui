@@ -5,8 +5,8 @@
     <div class="listHeader">Upcoming</div>
 	<ul class="list">
 		<li ng-repeat="race in races">
-			<a href="#/events/{{race.event_id}}/races/{{race.id}}">{{race.type}} 
-				<span ng-show="race.type != 'Final' && race.type != 'Petite'">{{race.event_type_index}}</span>
+			<a href="#/events/{{race.event_id}}/races/{{race.id}}">
+                <b>{{race.type}} <span ng-show="race.type != 'Final' && race.type != 'Petite'">{{race.event_type_index}}</span></b>
 				<span class="eventTime">{{race.timestamp | date:'h:mm'}}</span>
 				<span class="detailLine smallCaps">{{race.event_name}} ID: {{race.event_id}}</span>
 			</a>

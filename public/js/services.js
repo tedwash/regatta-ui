@@ -164,14 +164,14 @@ racingServices.service("raceDetailService", function ($http, $q) {
     var get = function (eventId, raceId, callback) {
         $http({ method: "GET", url: BASE_URL + "/races/" + raceId + ".json" }).success(function (data) {
             var lanes = [];
-            for (i = 0; i < 6; i++) {
+            var laneCount = data.length > 6 ? data.length : 6;
+            for (i = 0; i < laneCount; i++) {
                 lanes.push({ index: i + 1 });
             }
             angular.forEach(data.lanes, function (lane, i) {
                 lanes[lane.index - 1] = lane;
             });
             data.lanes = lanes;
-            console.dir(data);
             return callback(eventId, raceId, data);
         });
     }
@@ -179,7 +179,7 @@ racingServices.service("raceDetailService", function ($http, $q) {
         getRaceDetail: function (eventId, raceId, callback) {
             var deferred = $q.defer();
             get(eventId, raceId, function (eid, rid, data) { deferred.resolve(data); });
-            deferred.promise.then(function (res) { console.dir(res); return callback(eventId, raceId, res); });
+            deferred.promise.then(function (res) { return callback(eventId, raceId, res); });
         }
     }
 });
