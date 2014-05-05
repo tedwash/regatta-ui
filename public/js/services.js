@@ -1,13 +1,17 @@
-var BASE_URL = "https://dl.dropboxusercontent.com/u/3115379/vails_demo";
+var TEST = false;
+var devProps = { BASE_URL: "https://dl.dropboxusercontent.com/u/3115379/vails_demo", EXT: ".json" };
+var prdProps = { BASE_URL: "http://dv.mandibleweb.com/server/api", EXT: "" };
+var props = prdProps;
+if (TEST) props = devProps;
 var LANE_COUNT = 6;
 var OFFSET_MINS = 5;
-var TEST = true;
+
 
 racingServices.service("raceListService", function ($http, $q) {
     var raceListCache;
 
     var get = function (callback) {
-        $http({ method: "GET", url: BASE_URL + "/races.json" }).success(function (data) {
+        $http({ method: "GET", url: props.BASE_URL + "/races" + props.EXT }).success(function (data) {
             data.sort(dateCompare);
             raceListCache = data;
             return callback(raceListCache);
@@ -37,7 +41,6 @@ racingServices.service("raceListService", function ($http, $q) {
         angular.forEach(races, function (race, i) {
             var d = Date.parse(race.timestamp);
             if (now >= d) index = i;
-            race.event_name = "Event Name";
         });
 
         return races.slice(index, index + count);
@@ -52,14 +55,14 @@ racingServices.service("raceListService", function ($http, $q) {
     }
 
     return {
-        getUpcomingRaces: function(count, callback){
-            if (raceListCache){
-                return callback(getCurrentRaces(raceListCache, count));  
+        getUpcomingRaces: function (count, callback) {
+            if (raceListCache) {
+                return callback(getCurrentRaces(raceListCache, count));
             } else {
                 var deferred = $q.defer();
                 get(function (data) { deferred.resolve(data); });
                 deferred.promise.then(function (res) { callback(getCurrentRaces(raceListCache, count)); })
-            } 
+            }
         },
 
         getRace: function (id, callback) {
@@ -81,7 +84,7 @@ racingServices.service('eventListService', function ($http, $q) {
     var eventListCache;
 
     var get = function (callback) {
-        $http({ method: "GET", url: BASE_URL + "/events.json" }).success(function (data) {
+        $http({ method: "GET", url: props.BASE_URL + "/events" + props.EXT }).success(function (data) {
             eventListCache = data;
             return callback(eventListCache);
         });
@@ -123,26 +126,22 @@ racingServices.service('eventListService', function ($http, $q) {
 racingServices.service("eventDetailService", function ($http, $q) {
     var eventRacesCache = {};
     var get = function (id, callback) {
-        $http({ method: "GET", url: BASE_URL + "/events/" + id + ".json" }).success(function (data) {
-            var newData = [];
+        $http({ method: "GET", url: props.BASE_URL + "/events/" + id + "" + props.EXT }).success(function (data) {
+            var newData = { left: [], right: [] };
+            var isLeft = false;
             var day;
-            var lrClass = "dayRight";
-            for (var key in data.races) {
-                var level = {};
-                level.races = data.races[key];
+            angular.forEach(data.race_types, function (level, i) {
                 level.timestamp = new Date(level.races[0].timestamp);
-                level.type = key;
                 if (day != level.timestamp.getDay()) {
                     level.showDay = true;
                     day = level.timestamp.getDay();
-                    if (lrClass == "dayLeft") lrClass = "dayRight";
-                    else lrClass = "dayLeft";
+                    isLeft = !isLeft;
                 }
-                level.dayClass = lrClass;
-                newData.push(level);
-            }
-            console.dir(newData);
-            eventRacesCache[id] = newData;
+                if (isLeft) newData.left.push(level);
+                else newData.right.push(level);
+            });
+            data.race_types = newData;
+            eventRacesCache[id] = data;
             return callback(id, eventRacesCache[id]);
         });
     }
@@ -162,7 +161,7 @@ racingServices.service("eventDetailService", function ($http, $q) {
 
 racingServices.service("raceDetailService", function ($http, $q) {
     var get = function (eventId, raceId, callback) {
-        $http({ method: "GET", url: BASE_URL + "/races/" + raceId + ".json" }).success(function (data) {
+        $http({ method: "GET", url: props.BASE_URL + "/races/" + raceId + "" + props.EXT }).success(function (data) {
             var lanes = [];
             var laneCount = data.length > 6 ? data.length : 6;
             for (i = 0; i < laneCount; i++) {

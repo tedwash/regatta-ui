@@ -83,9 +83,11 @@ ul.list li .placeholder .details .lane {
 }
 ul.list li a .blade,
 ul.list li .placeholder .blade {
-  width: 50px;
+  width: 40px;
   float: right;
-  margin-top: 1px;
+  margin-top: 8px;
+  height: 24px;
+  background-size: cover;
 }
 @media only screen and (max-width:500px) and (orientation:portrait), only screen and (max-height:500px) and (orientation:landscape) {
   ul.list li a .eventNote,
@@ -110,25 +112,25 @@ ul.list li a:active {
   background: #4385f5;
   color: white;
 }
-.dayLeft {
+.group.left {
   width: 50%;
   float: left;
   box-sizing: border-box;
   padding-right: 20px;
 }
 @media only screen and (max-width:500px) and (orientation:portrait), only screen and (max-height:500px) and (orientation:landscape) {
-  .dayLeft {
+  .group.left {
     width: auto;
     padding-right: inherit;
     float: none;
   }
 }
-.dayRight {
+.group.right {
   width: 50%;
   float: right;
 }
 @media only screen and (max-width:500px) and (orientation:portrait), only screen and (max-height:500px) and (orientation:landscape) {
-  .dayRight {
+  .group.right {
     width: auto;
     float: none;
   }

@@ -18,7 +18,7 @@
                     <span class="university">{{lane.university_name}}</span>
                     <span class="lane">Lane {{lane.index}}</span>
                 </span>
-                <img class="blade" ng-src="https://dl.dropboxusercontent.com/u/3115379/vails_demo/universities/{{lane.university_id}}.png" alt="{{lane.university_name}}" />
+                <span class="blade" ng-style="{backgroundImage:'url(img/blades/{{lane.university_id}}.png)'}" alt="{{lane.university_name}}"></span>
                 <span class="clearfix"></span>
             </a>
             <span ng-if="!lane.university_id" class="placeholder"><span class="laneNumber smallCaps">Lane {{lane.index}}</span></span>

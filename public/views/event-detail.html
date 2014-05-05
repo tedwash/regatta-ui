@@ -1,16 +1,15 @@
 <div class="viewHeader">
-    <span class="viewTitle">{{event.name}}
+    <span class="viewTitle">{{event.name}}</span>
 </div>
-<ul class="group">
-
-    <li ng-repeat="level in races | orderBy:level.timestamp" class="{{level.dayClass}}">
+<ul class="group left">
+    <li ng-repeat="level in event.race_types.left | orderBy:level.timestamp">
         <div ng-show="level.showDay" class="listHeader">{{level.timestamp | date:'EEEE'}}</div>
         <ul class="list">
             <li ng-repeat="race in level.races">
-                <a href="#/events/{{race.event_id}}/races/{{race.id}}"><b>{{race.type}} <span ng-show="level.races.length > 1">{{race.event_type_index}}</span></b>
-                    <span class="eventTime">{{level.timestamp | date:'H:mm'}}</span>
+                <a href="#/events/{{race.event_id}}/races/{{race.id}}"><b>{{race.type_name}} <span ng-show="level.races.length > 1">{{race.event_type_index}}</span></b>
+                    <span class="eventTime">{{race.timestamp | date:'H:mm'}}</span>
                     <span class="eventNote smallCaps">
-                        <span ng-show="level.type=='Final' && event.trophy"><i class="fa fa-trophy"></i> {{event.trophy}}
+                        <span ng-show="level.type == 4 && event.trophy"><i class="fa fa-trophy"></i> {{event.trophy}}
                         </span>
                         <span ng-show="race.advancement">{{race.advancement}}</span>
                     </span>
@@ -18,5 +17,21 @@
             </li>
         </ul>
     </li>
-
+</ul>
+<ul class="group right">
+    <li ng-repeat="level in event.race_types.right | orderBy:level.timestamp">
+        <div ng-show="level.showDay" class="listHeader">{{level.timestamp | date:'EEEE'}}</div>
+        <ul class="list">
+            <li ng-repeat="race in level.races">
+                <a href="#/events/{{race.event_id}}/races/{{race.id}}"><b>{{race.type_name}} <span ng-show="level.races.length > 1">{{race.event_type_index}}</span></b>
+                    <span class="eventTime">{{race.timestamp | date:'H:mm'}}</span>
+                    <span class="eventNote smallCaps">
+                        <span ng-show="level.type == 4 && event.trophy"><i class="fa fa-trophy"></i> {{event.trophy}}
+                        </span>
+                        <span ng-show="race.advancement">{{race.advancement}}</span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </li>
 </ul>

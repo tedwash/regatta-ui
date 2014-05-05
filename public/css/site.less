@@ -90,9 +90,11 @@ ul {
                 }
 
                 .blade {
-                    width: 50px;
+                    width: 40px;
                     float: right;
-                    margin-top: 1px;
+                    margin-top: 8px;
+                    height: 24px;
+                    background-size: cover;
                 }
 
                 .eventNote {
@@ -124,23 +126,25 @@ ul {
     }
 }
 
-.dayLeft {
-    width: 50%;
-    float: left;
-    box-sizing: border-box;
-    padding-right: 20px;
+.group {
+    &.left {
+        width: 50%;
+        float: left;
+        box-sizing: border-box;
+        padding-right: 20px;
 
-    @media @phone {
-        width: auto; padding-right: inherit; float: none;
+        @media @phone {
+            width: auto; padding-right: inherit; float: none;
+        }
     }
-}
 
-.dayRight {
-    width: 50%;
-    float: right;
+    &.right {
+        width: 50%;
+        float: right;
 
-    @media @phone {
-        width: auto; float: none;
+        @media @phone {
+            width: auto; float: none;
+        }
     }
 }
 
