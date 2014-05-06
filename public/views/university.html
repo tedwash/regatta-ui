@@ -1,0 +1,17 @@
+<div class="viewHeader">
+    <span class="viewTitle">{{university.name}}</span>
+</div>
+<ul class="group">
+    <li ng-repeat="event in university.events">
+        <span class="listHeader">{{event.name}}</span>
+        <ul class="group">
+            <li ng-repeat="type in event.race_types">
+                <ul class="list">
+                    <li ng-repeat="race in type.races">
+                        <a href="#/">{{race.type_name}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>

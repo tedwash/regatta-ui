@@ -9,7 +9,7 @@
 <div class="content">
     <ul class="list">
         <li ng-repeat="lane in race.lanes | orderBy:'place'" ng-class="{muted:!lane.university_id}">
-            <a ng-if="lane.university_id" href="#/events">
+            <a ng-if="lane.university_id" href="#/university/{{lane.university_id}}">
                 <span class="positioning" ng-if="lane.place">
                     <span class="place">{{lane.place + placeSuffix(lane.place)}}</span>
                     <span class="time">{{toHumanTime(lane.milliseconds)}}</span>
@@ -21,7 +21,11 @@
                 <span class="blade" ng-style="{backgroundImage:'url(img/blades/{{lane.university_id}}.png)'}" alt="{{lane.university_name}}"></span>
                 <span class="clearfix"></span>
             </a>
-            <span ng-if="!lane.university_id" class="placeholder"><span class="laneNumber smallCaps">Lane {{lane.index}}</span></span>
+            <span ng-if="!lane.university_id" class="placeholder">
+                <span class="details">
+                    <span class="lane">Lane {{lane.index}}</span>
+                </span>
+            </span>
         </li>
     </ul>
 </div>

@@ -7,6 +7,7 @@ body, html {
     font-weight: @fontWeight;
     font-size: @fontSize;
     background: #e5e5e5;
+    height: 100%;
 }
 
 .listHeader {
@@ -16,12 +17,18 @@ body, html {
     padding: 5px 0;
 }
 
+.loading {
+    background-image:  url(../img/loader.gif);
+    background-size: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 70px;
+}
+
 ul {
     margin: 0;
     padding: 0;
     list-style: none;
-
-
 
     &.list {
         background: white;
@@ -46,7 +53,7 @@ ul {
                 border-bottom-left-radius: @borderRadius;
                 border-bottom-right-radius: @borderRadius;
             }
-
+            
             a, .placeholder {
                 padding: 10px;
                 display: block;
@@ -115,7 +122,8 @@ ul {
             }
 
             .placeholder {
-                margin-left: 50px;
+                margin-left: 25%;
+                padding: 10px 5px;    
             }
 
             a:active {

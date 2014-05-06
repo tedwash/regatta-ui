@@ -80,7 +80,7 @@ racingServices.service("raceListService", function ($http, $q) {
 
 });
 
-racingServices.service('eventListService', function ($http, $q) {
+racingServices.service("eventListService", function ($http, $q) {
     var eventListCache;
 
     var get = function (callback) {
@@ -182,3 +182,18 @@ racingServices.service("raceDetailService", function ($http, $q) {
         }
     }
 });
+
+racingServices.service("universityService", function ($http, $q){
+    var get = function (universityId, callback) {
+        $http({ method: "GET", url: props.BASE_URL + "/universities/" + universityId + "" + props.EXT }).success(function (data) {
+            return callback(universityId, data);
+        });
+    }
+    return {
+        getUniversity: function (universityId, callback) {
+            var deferred = $q.defer();
+            get(universityId, function (uid, data) { deferred.resolve(data); });
+            deferred.promise.then(function (res) { return callback(universityId, res); });
+        }
+    }
+})
