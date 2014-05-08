@@ -1,0 +1,33 @@
+<div class="viewHeader withBlade">
+    <span class="viewTitle">
+        <span class="blade" ng-style="{{bladeStyle}}"></span> {{crew.name}}
+        <span class="clearfix"></span>
+    </span>    
+</span>
+</div>
+<ul>
+    <li ng-repeat="event in crew.events">
+        <div class="listHeader">{{event.name}}</div>
+        <ul class="list">
+            <li ng-repeat="type in event.race_types" style="border-bottom:none">
+                <ul>
+                    <li ng-repeat="race in type.races">
+                        <a href="#/events/{{race.event_id}}/races/{{race.id}}/{{crew.id}}"><b>{{race.type_name}} <span ng-show="race.type < 3">{{race.event_type_index}}</span></b>
+                            <span class="eventTime bigTime">
+                                <span class="hrMin">{{race.timestamp | date:'h:mm'}}</span>
+                                <span class="apDay">
+                                    <span class="row">{{race.timestamp | date:'a'}}</span>
+                                    <span class="row">{{race.timestamp | date:'EEE'}}</span>
+                                </span>
+                            </span>
+                            <span class="eventNote smallCaps">
+                                <span ng-show="race.advancement">{{race.advancement}}</span>
+                            </span>
+                            <span class="clearfix"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>

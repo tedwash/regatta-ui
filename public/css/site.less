@@ -6,8 +6,12 @@ body, html {
     font-family: @fontStack;
     font-weight: @fontWeight;
     font-size: @fontSize;
-    background: #e5e5e5;
+    background: @backgroundColor;
     height: 100%;
+
+    @media @phone {
+        font-size: 18px;
+    }
 }
 
 .listHeader {
@@ -42,6 +46,17 @@ ul {
                 background: #f5f5f5;
                 color: #aaa;
                 min-height: 39px;
+            }
+
+            &.status {
+                padding: 10px 5px;
+                text-align: center;
+                background: @backgroundColor;
+
+                &.status-2 {
+                    background: #0F9D58;
+                    color:white;
+                }
             }
 
             &:first-child {
@@ -102,7 +117,13 @@ ul {
                     margin-top: 8px;
                     height: 24px;
                     background-size: cover;
+
+                    &.oneLine {
+                        margin-top:0;
+                    }
                 }
+
+
 
                 .eventNote {
                     @media @phone {
@@ -115,10 +136,6 @@ ul {
                         display: block;
                     }
                 }
-
-                .eventTime {
-                    float: right;
-                }
             }
 
             .placeholder {
@@ -126,12 +143,66 @@ ul {
                 padding: 10px 5px;    
             }
 
-            a:active {
+            a:active,
+            a.highlighted {
                 background: @linkColor;
                 color: white;
             }
         }
     }
+}
+
+nav {
+
+    ul {
+        padding:0;
+        margin:0;
+
+        li {
+            display:inline-block;
+
+            &.active {
+
+                a {
+                    padding-bottom: 7px;
+                    border-bottom: 3px solid white;
+                }
+            }
+
+            a {
+                display:block;
+                padding:10px;
+                color:white;
+                text-transform:uppercase;
+            }
+        }
+    }
+}
+
+.eventTime {
+    float: right;
+
+    .hrMin {
+        float:left;
+    }
+    .apDay {
+        font-size: 9px;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-left: 2px;
+
+        .row {
+            display: block;
+        }
+    }
+
+    &.bigTime{
+        font-size: 24px;
+    }
+}
+
+.eventName {
+    float: right;
 }
 
 .group {
@@ -159,9 +230,26 @@ ul {
 .viewHeader {
     padding: 15px 0 10px 0;
 
+    &.withBlade {
+        line-height: 33px;
+    }
+
     .viewTitle {
         font-size: 24px;
         font-weight: 200;
+
+        .blade {
+            @bladeSize: 36px;
+            float:left;
+            width: @bladeSize;
+            height: @bladeSize;
+            background-size: 31px;
+            display:inline-block;
+            border-radius: @bladeSize / 2;
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin-right:5px;
+        }
     }
 }
 
@@ -170,7 +258,7 @@ ul {
 }
 
 .eventFilter {
-    padding: 10px;
+    padding: 10px 0;
 }
 
 input[type=text] {
@@ -180,13 +268,17 @@ input[type=text] {
     font-family: @fontStack;
     font-weight: @fontWeight;
     font-size: @fontSize;
-    background: #e5e5e5;
+    background: rgba(255,255,255,0.5);
     border-radius: @borderRadius;
     box-sizing: border-box;
     width: 100%;
 
     &:focus {
         outline: none;
+    }
+
+    @media @phone {
+        font-size:18px;
     }
 }
 
@@ -201,10 +293,16 @@ a {
 
     @media @tablet {
         width:auto; padding: 0 10px;
+        &.noPadding{
+            padding:0;
+        }
     }
 
     @media @phone {
         width:auto; padding: 0 10px;
+        &.noPadding {
+            padding:0;
+        }
     }
 }
 

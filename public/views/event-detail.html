@@ -7,7 +7,13 @@
         <ul class="list">
             <li ng-repeat="race in level.races">
                 <a href="#/events/{{race.event_id}}/races/{{race.id}}"><b>{{race.type_name}} <span ng-show="level.races.length > 1">{{race.event_type_index}}</span></b>
-                    <span class="eventTime">{{race.timestamp | date:'H:mm'}}</span>
+                    <span class="eventTime">
+                        <span class="hrMin">{{race.timestamp | date:'h:mm'}}</span>
+                        <span class="apDay">
+                            <span class="row">{{race.timestamp | date:'a'}}</span>
+                            <span class="row">&nbsp;</span>
+                        </span>
+                    </span>
                     <span class="eventNote smallCaps">
                         <span ng-show="level.type == 4 && event.trophy"><i class="fa fa-trophy"></i> {{event.trophy}}
                         </span>
@@ -24,7 +30,13 @@
         <ul class="list">
             <li ng-repeat="race in level.races">
                 <a href="#/events/{{race.event_id}}/races/{{race.id}}"><b>{{race.type_name}} <span ng-show="level.races.length > 1">{{race.event_type_index}}</span></b>
-                    <span class="eventTime">{{race.timestamp | date:'H:mm'}}</span>
+                    <span class="eventTime">
+                        <span class="hrMin">{{race.timestamp | date:'h:mm'}}</span>
+                        <span class="apDay">
+                            <span class="row">{{race.timestamp | date:'a'}}</span>
+                            <span class="row">&nbsp;</span>
+                        </span>
+                    </span>
                     <span class="eventNote smallCaps">
                         <span ng-show="level.type == 4 && event.trophy"><i class="fa fa-trophy"></i> {{event.trophy}}
                         </span>

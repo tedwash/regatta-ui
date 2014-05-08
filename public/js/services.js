@@ -183,17 +183,37 @@ racingServices.service("raceDetailService", function ($http, $q) {
     }
 });
 
-racingServices.service("universityService", function ($http, $q){
-    var get = function (universityId, callback) {
+racingServices.service("crewService", function ($http, $q){
+    var crewListCache;
+
+    var getCrew = function (universityId, callback) {
         $http({ method: "GET", url: props.BASE_URL + "/universities/" + universityId + "" + props.EXT }).success(function (data) {
             return callback(universityId, data);
         });
     }
+
+    var getCrewList = function (callback) {
+        $http({ method: "GET", url: props.BASE_URL + "/universities" + props.EXT }).success(function (data) {
+            return callback(data);
+        });
+    }
+
     return {
-        getUniversity: function (universityId, callback) {
+        getCrew: function (universityId, callback) {
             var deferred = $q.defer();
-            get(universityId, function (uid, data) { deferred.resolve(data); });
+            getCrew(universityId, function (uid, data) { deferred.resolve(data); });
             deferred.promise.then(function (res) { return callback(universityId, res); });
+        },
+
+        getCrewList: function(callback) {
+            if (crewListCache) {
+                return callback(crewListCache);
+            } else {
+                var deferred = $q.defer();
+                getCrewList(function (data) { deferred.resolve(data); });
+                deferred.promise.then(function (res) { return callback(res); })
+            }
+
         }
     }
 })

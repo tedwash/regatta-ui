@@ -1,7 +1,4 @@
 <div class="events">
-    <div class="eventFilter" style="display:none">
-        <input type="text" ng-model="query" placeholder="filter" />
-    </div>
     <div class="listHeader">Upcoming</div>
     <ul class="list">
         <li ng-repeat="race in races">
@@ -13,6 +10,9 @@
         </li>
     </ul>
     <div class="listHeader">Events</div>
+    <div class="eventFilter" style="padding-top:5px">
+        <input type="text" ng-model="query" placeholder="filter" />
+    </div>
     <ul class="list">
         <li ng-repeat="event in events | filter:query | orderBy:'id'"><a href="#/events/{{event.id}}"><b>{{event.id}}</b> {{event.name}}</a></li>
     </ul>

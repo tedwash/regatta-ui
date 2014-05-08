@@ -1,0 +1,10 @@
+<div class="crews">
+    <div class="eventFilter">
+        <input type="text" ng-model="query" placeholder="filter" />
+    </div>
+    <ul class="list">
+        <li ng-repeat="crew in crews | filter:query | orderBy:'id'"><a href="#/crews/{{crew.id}}">{{crew.name}} <span class="blade oneLine" ng-style="{backgroundImage:'url(http://dv.mandibleweb.com/server/api/blades/{{crew.id}})'}"></span>
+        	<span class="clearfix"></span>
+        </a></li>
+    </ul>
+</div>

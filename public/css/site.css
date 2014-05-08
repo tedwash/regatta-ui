@@ -8,6 +8,12 @@ html {
   background: #e5e5e5;
   height: 100%;
 }
+@media only screen and (max-width:500px) and (orientation:portrait), only screen and (max-height:500px) and (orientation:landscape) {
+  body,
+  html {
+    font-size: 18px;
+  }
+}
 .listHeader {
   text-transform: uppercase;
   color: #aaa;
@@ -38,6 +44,15 @@ ul.list li.muted {
   background: #f5f5f5;
   color: #aaa;
   min-height: 39px;
+}
+ul.list li.status {
+  padding: 10px 5px;
+  text-align: center;
+  background: #e5e5e5;
+}
+ul.list li.status.status-2 {
+  background: #0F9D58;
+  color: white;
 }
 ul.list li:first-child {
   border-top-left-radius: 3px;
@@ -97,6 +112,10 @@ ul.list li .placeholder .blade {
   height: 24px;
   background-size: cover;
 }
+ul.list li a .blade.oneLine,
+ul.list li .placeholder .blade.oneLine {
+  margin-top: 0;
+}
 @media only screen and (max-width:500px) and (orientation:portrait), only screen and (max-height:500px) and (orientation:landscape) {
   ul.list li a .eventNote,
   ul.list li .placeholder .eventNote {
@@ -109,17 +128,52 @@ ul.list li .placeholder .blade {
     display: block;
   }
 }
-ul.list li a .eventTime,
-ul.list li .placeholder .eventTime {
-  float: right;
-}
 ul.list li .placeholder {
   margin-left: 25%;
   padding: 10px 5px;
 }
-ul.list li a:active {
+ul.list li a:active,
+ul.list li a.highlighted {
   background: #4385f5;
   color: white;
+}
+nav ul {
+  padding: 0;
+  margin: 0;
+}
+nav ul li {
+  display: inline-block;
+}
+nav ul li.active a {
+  padding-bottom: 7px;
+  border-bottom: 3px solid white;
+}
+nav ul li a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-transform: uppercase;
+}
+.eventTime {
+  float: right;
+}
+.eventTime .hrMin {
+  float: left;
+}
+.eventTime .apDay {
+  font-size: 9px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-left: 2px;
+}
+.eventTime .apDay .row {
+  display: block;
+}
+.eventTime.bigTime {
+  font-size: 24px;
+}
+.eventName {
+  float: right;
 }
 .group.left {
   width: 50%;
@@ -147,15 +201,29 @@ ul.list li a:active {
 .viewHeader {
   padding: 15px 0 10px 0;
 }
+.viewHeader.withBlade {
+  line-height: 33px;
+}
 .viewHeader .viewTitle {
   font-size: 24px;
   font-weight: 200;
+}
+.viewHeader .viewTitle .blade {
+  float: left;
+  width: 36px;
+  height: 36px;
+  background-size: 31px;
+  display: inline-block;
+  border-radius: 18px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-right: 5px;
 }
 .eventID {
   font-weight: bold;
 }
 .eventFilter {
-  padding: 10px;
+  padding: 10px 0;
 }
 input[type=text] {
   border: none;
@@ -164,13 +232,18 @@ input[type=text] {
   font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
   font-weight: 300;
   font-size: 16px;
-  background: #e5e5e5;
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 3px;
   box-sizing: border-box;
   width: 100%;
 }
 input[type=text]:focus {
   outline: none;
+}
+@media only screen and (max-width:500px) and (orientation:portrait), only screen and (max-height:500px) and (orientation:landscape) {
+  input[type=text] {
+    font-size: 18px;
+  }
 }
 a {
   color: #4385f5;
@@ -185,11 +258,17 @@ a {
     width: auto;
     padding: 0 10px;
   }
+  .container.noPadding {
+    padding: 0;
+  }
 }
 @media only screen and (max-width:500px) and (orientation:portrait), only screen and (max-height:500px) and (orientation:landscape) {
   .container {
     width: auto;
     padding: 0 10px;
+  }
+  .container.noPadding {
+    padding: 0;
   }
 }
 header {

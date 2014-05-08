@@ -16,6 +16,12 @@
 		<div class="container">
 			<a href="./" class="siteTitle">2014 Dad Vail Regatta</a>
 		</div>
+		<nav class="container noPadding">
+			<ul>
+				<li ng-class="{active:nav=='events'}"><a href="#/events"><i class="fa fa-flag"></i> Events</a></li>
+				<li ng-class="{active:nav=='crews'}"><a href="#/crews"><i class="fa fa-users"></i> Crews</a></li>
+			</ul>
+		</nav>
 	</header>
 	<div class="container">
 		<div ng-view></div>

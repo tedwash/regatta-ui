@@ -21,13 +21,8 @@ racingControllers.controller("EventDetailCtrl", ["$rootScope", "$scope", "$route
         eventDetailService.getRaceList(eventId, function (id, data) {
             $scope.event = data;
             $rootScope.loading = false;
+            $rootScope.title = data.name;
         });
-        /*eventListService.getEvent(eventId, function (data) {
-        $scope.event = data;
-        $rootScope.title = data.name;
-        });
-        $scope.today = new Date();
-        */
     }
  ]);
 
@@ -35,6 +30,7 @@ racingControllers.controller("RaceDetailCtrl", ["$rootScope", "$scope", "$routeP
     function ($rootScope, $scope, $routeParams, raceListService, raceDetailService, localStorageService) {
         var eventId = $routeParams.eventId;
         var raceId = $routeParams.raceId;
+        $scope.calloutCrew = $routeParams.crewId;
         var pageId = eventId + "" + raceId;
         if (localStorageService.get("pageId") == pageId) $scope.showReload = true;
         else $scope.showReload = false;
@@ -43,6 +39,7 @@ racingControllers.controller("RaceDetailCtrl", ["$rootScope", "$scope", "$routeP
         raceDetailService.getRaceDetail(eventId, raceId, function (eventId, raceId, data) {
             $scope.race = data;
             $rootScope.loading = false;
+            $rootScope.title = data.type_name + (data.type < 3 ? " " + data.event_type_index : "") + " - " + data.event_name;
         });
         $scope.reloadResults = function () {
             $rootScope.loading = true;
@@ -76,12 +73,23 @@ racingControllers.controller("RaceDetailCtrl", ["$rootScope", "$scope", "$routeP
     }
 ]);
 
-racingControllers.controller("UniversityCtrl", ["$rootScope", "$scope", "$routeParams", "universityService", function ($rootScope, $scope, $routeParams, universityService) {
-    var universityId = $routeParams.universityId;
+racingControllers.controller("CrewCtrl", ["$rootScope", "$scope", "$routeParams", "crewService", function ($rootScope, $scope, $routeParams, crewService) {
+    var crewId = $routeParams.crewId;
         $rootScope.loading = true;
-        universityService.getUniversity(universityId, function (id, data) {
-            $scope.university = data;
+        crewService.getCrew(crewId, function (id, data) {
+            $scope.crew = data;
             $rootScope.loading = false;
         });
+        $scope.bladeStyle = {backgroundImage: "url(http://dv.mandibleweb.com/server/api/blades/" + crewId + ")", backgroundColor:"white"};
 }
 ]);
+
+racingControllers.controller("CrewListCtrl", ["$rootScope", "$scope", "crewService", function ($rootScope, $scope, crewService) {
+    $rootScope.loading = true;
+    crewService.getCrewList(function (data) {
+        $scope.crews = data;
+        $rootScope.loading = false;
+    });
+} ]);
+
+

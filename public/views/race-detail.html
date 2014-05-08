@@ -1,24 +1,33 @@
 <div class="viewHeader">
-    <div class="viewTitle">Race {{race.id}}
-        <div class="reloadButton">
-            <button class="btn" ng-show="false" ng-click="reloadResults()"><i class="fa fa-refresh"></i> Refresh</button>
-        </div>
+    <div class="viewTitle">
+        <span style="float:left">{{race.id}} <b>{{race.type_name}} <span ng-if="race.type < 3">{{race.event_type_index}}</span></b></span>
+        <span class="eventTime">
+            <span class="hrMin">{{race.timestamp | date:'h:mm'}}</span>
+            <span class="apDay">
+                <span class="row">{{race.timestamp | date:'a'}}</span>
+                <span class="row">{{race.timestamp | date:'EEE'}}</span>
+            </span>
+        </span>
         <span class="clearfix"></span>
     </div>
+    <div class="viewSubTitle">{{race.event_name}}</div>
 </div>
 <div class="content">
     <ul class="list">
         <li ng-repeat="lane in race.lanes | orderBy:'place'" ng-class="{muted:!lane.university_id}">
-            <a ng-if="lane.university_id" href="#/university/{{lane.university_id}}">
-                <span class="positioning" ng-if="lane.place">
-                    <span class="place">{{lane.place + placeSuffix(lane.place)}}</span>
+            <a ng-if="lane.university_id" href="#/crews/{{lane.university_id}}" ng-class="{highlighted:(calloutCrew == lane.university_id)}">
+                <span class="positioning">
+                    <span class="place">
+                        <span ng-if="lane.place">{{lane.place + placeSuffix(lane.place)}}</span>
+                        <span ng-if="lane.message">{{lane.message}}</span>
+                    </span>
                     <span class="time">{{toHumanTime(lane.milliseconds)}}</span>
                 </span>
                 <span class="details">
                     <span class="university">{{lane.university_name}}</span>
                     <span class="lane">Lane {{lane.index}}</span>
                 </span>
-                <span class="blade" ng-style="{backgroundImage:'url(img/blades/{{lane.university_id}}.png)'}" alt="{{lane.university_name}}"></span>
+                <span class="blade" ng-style="{backgroundImage:'url(http://dv.mandibleweb.com/server/api/blades/{{lane.university_id}})'}"></span>
                 <span class="clearfix"></span>
             </a>
             <span ng-if="!lane.university_id" class="placeholder">
