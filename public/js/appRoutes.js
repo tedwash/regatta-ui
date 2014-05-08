@@ -6,5 +6,6 @@ racingApp.config(["$routeProvider", function ($routeProvider) {
         .when("/events/:eventId/races/:raceId/:crewId", { templateUrl: "views/race-detail.html", controller: "RaceDetailCtrl", title: "Race" })
         .when("/crews/:crewId", { templateUrl: "views/crew.html", controller: "CrewCtrl", title: "Crew" })
         .when("/crews", { templateUrl: "views/crew-list.html", controller: "CrewListCtrl", title: "Crews" })
+        .when("/about", { templateUrl: "views/about.html", controller: "AboutCtrl", title: "About" })
 		.otherwise({ redirectTo: "/events" });
 } ]);

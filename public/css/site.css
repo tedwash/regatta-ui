@@ -288,6 +288,20 @@ header .siteTitle {
     padding-right: 0;
   }
 }
+.wrapper {
+  min-height: 750px;
+}
+@media only screen and (max-width:500px) and (orientation:portrait), only screen and (max-height:500px) and (orientation:landscape) {
+  .wrapper {
+    min-height: 500px;
+  }
+}
+footer {
+  padding: 5px 0;
+}
+footer a {
+  color: #aaa;
+}
 button.btn,
 a.btn {
   border: none;
@@ -339,4 +353,26 @@ a.btn.btn-muted {
 }
 .content {
   min-height: 250px;
+}
+.card {
+  border-radius: 3px;
+  background: white;
+  width: 600px;
+  margin: 0 auto;
+}
+.card .content {
+  padding: 10px;
+}
+.card .content p {
+  margin: 0 0 10px 0;
+}
+@media only screen and (max-width:500px) and (orientation:portrait), only screen and (max-height:500px) and (orientation:landscape) {
+  .card {
+    width: auto;
+  }
+}
+.card img {
+  width: 100%;
+  display: block;
+  border-radius: 3px 3px 0 0;
 }

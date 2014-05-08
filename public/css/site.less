@@ -323,6 +323,22 @@ header {
     }
 }
 
+.wrapper {
+    min-height: 750px;
+    
+    @media @phone {
+        min-height: 500px;
+    }
+}
+
+footer {
+    padding: 5px 0;
+    
+    a {
+        color: #aaa;
+    }
+}
+
 button.btn, a.btn {
     border: none;
     margin: 0;
@@ -374,4 +390,29 @@ button.btn, a.btn {
 
 .content {
     min-height: 250px;
+}
+
+.card {
+    border-radius: @borderRadius;
+    background: white;
+    width: 600px;
+    margin:0 auto;
+    
+    .content {
+        padding: 10px;
+        
+        p{
+            margin:  0 0 10px 0;
+        }
+    }
+    
+    @media @phone {
+        width: auto;
+    }
+    
+    img {
+        width: 100%;
+        display: block;
+        border-radius: @borderRadius @borderRadius 0 0;
+    }
 }

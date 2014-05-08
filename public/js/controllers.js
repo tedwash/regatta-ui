@@ -26,6 +26,12 @@ racingControllers.controller("EventDetailCtrl", ["$rootScope", "$scope", "$route
     }
  ]);
 
+racingControllers.controller("AboutCtrl", ["$rootScope", "$scope",
+    function ($rootScope, $scope) {
+
+    }
+ ]);
+
 racingControllers.controller("RaceDetailCtrl", ["$rootScope", "$scope", "$routeParams", "raceListService", "raceDetailService", "localStorageService",
     function ($rootScope, $scope, $routeParams, raceListService, raceDetailService, localStorageService) {
         var eventId = $routeParams.eventId;
@@ -75,12 +81,12 @@ racingControllers.controller("RaceDetailCtrl", ["$rootScope", "$scope", "$routeP
 
 racingControllers.controller("CrewCtrl", ["$rootScope", "$scope", "$routeParams", "crewService", function ($rootScope, $scope, $routeParams, crewService) {
     var crewId = $routeParams.crewId;
-        $rootScope.loading = true;
-        crewService.getCrew(crewId, function (id, data) {
-            $scope.crew = data;
-            $rootScope.loading = false;
-        });
-        $scope.bladeStyle = {backgroundImage: "url(http://dv.mandibleweb.com/server/api/blades/" + crewId + ")", backgroundColor:"white"};
+    $rootScope.loading = true;
+    crewService.getCrew(crewId, function (id, data) {
+        $scope.crew = data;
+        $rootScope.loading = false;
+    });
+    $scope.bladeStyle = { backgroundImage: "url(http://dv.mandibleweb.com/server/api/blades/" + crewId + ")", backgroundColor: "white" };
 }
 ]);
 
