@@ -1,1 +1,1 @@
-var prdProps={BASE_URL:"http://dv.mandibleweb.com/server/api",EXT:""};
+var prdProps={BASE_URL:"http://m.dadvail.co/server/api",EXT:""};

@@ -1,375 +1,350 @@
 .b {
   background: url(../img/blades.png) no-repeat top left;
-  background-size: 172px;
+  background-size: 175px;
   display: block;
   width: 40px;
   height: 24px;
 }
-.b-1 {
+.b-01,
+.b-12,
+.b-99 {
   background-position: 0px 0px;
 }
+.b-1 {
+  background-position: 0px -29px;
+}
 .b-10 {
-  background-position: 0px -28px;
+  background-position: 0px -58px;
 }
 .b-100 {
-  background-position: 0px -56px;
+  background-position: 0px -87px;
 }
 .b-101 {
-  background-position: 0px -84px;
+  background-position: 0px -116px;
 }
 .b-102 {
-  background-position: 0px -112px;
+  background-position: 0px -145px;
 }
 .b-103 {
-  background-position: 0px -140px;
+  background-position: 0px -174px;
 }
 .b-104 {
-  background-position: 0px -168px;
+  background-position: 0px -203px;
 }
 .b-105 {
-  background-position: 0px -196px;
+  background-position: 0px -232px;
 }
 .b-106 {
-  background-position: 0px -224px;
+  background-position: 0px -261px;
 }
 .b-107 {
-  background-position: 0px -252px;
+  background-position: 0px -290px;
 }
 .b-108 {
-  background-position: 0px -280px;
+  background-position: 0px -319px;
 }
 .b-109 {
-  background-position: 0px -308px;
+  background-position: 0px -348px;
 }
 .b-11 {
-  background-position: 0px -336px;
+  background-position: 0px -377px;
 }
 .b-110 {
-  background-position: 0px -364px;
+  background-position: 0px -406px;
 }
 .b-111 {
-  background-position: 0px -392px;
+  background-position: 0px -435px;
 }
 .b-112 {
-  background-position: 0px -420px;
+  background-position: 0px -464px;
 }
 .b-113 {
-  background-position: 0px -448px;
+  background-position: 0px -493px;
 }
 .b-114 {
-  background-position: 0px -476px;
+  background-position: 0px -522px;
 }
 .b-115 {
-  background-position: 0px -504px;
-}
-.b-116 {
-  background-position: 0px -532px;
-}
-.b-117 {
-  background-position: 0px -560px;
-}
-.b-118 {
-  background-position: 0px -588px;
-}
-.b-119 {
-  background-position: 0px -616px;
-}
-.b-12 {
-  background-position: 0px -644px;
-}
-.b-120 {
-  background-position: 0px -672px;
-}
-.b-121 {
-  background-position: 0px -700px;
-}
-.b-122 {
-  background-position: 0px -728px;
-}
-.b-123 {
-  background-position: 0px -756px;
-}
-.b-124 {
-  background-position: 0px -784px;
-}
-.b-125 {
-  background-position: 0px -812px;
+  background-position: 0px -551px;
 }
 .b-13 {
-  background-position: 0px -840px;
+  background-position: 0px -580px;
 }
 .b-14 {
-  background-position: 0px -868px;
+  background-position: 0px -609px;
 }
 .b-15 {
-  background-position: 0px -896px;
+  background-position: 0px -638px;
 }
 .b-16 {
-  background-position: 0px -924px;
+  background-position: 0px -667px;
 }
 .b-17 {
-  background-position: 0px -952px;
+  background-position: 0px -696px;
 }
 .b-18 {
-  background-position: 0px -980px;
+  background-position: 0px -725px;
 }
 .b-19 {
-  background-position: -44px 0px;
+  background-position: 0px -754px;
 }
 .b-2 {
-  background-position: -44px -28px;
+  background-position: 0px -783px;
 }
 .b-20 {
-  background-position: -44px -56px;
+  background-position: 0px -812px;
 }
 .b-21 {
-  background-position: -44px -84px;
+  background-position: 0px -841px;
 }
 .b-22 {
-  background-position: -44px -112px;
+  background-position: 0px -870px;
 }
 .b-23 {
-  background-position: -44px -140px;
+  background-position: 0px -899px;
 }
 .b-24 {
-  background-position: -44px -168px;
+  background-position: 0px -928px;
 }
 .b-25 {
-  background-position: -44px -196px;
+  background-position: 0px -957px;
 }
 .b-26 {
-  background-position: -44px -224px;
+  background-position: 0px -986px;
 }
 .b-27 {
-  background-position: -44px -252px;
+  background-position: -45px 0px;
 }
 .b-28 {
-  background-position: -44px -280px;
+  background-position: -45px -29px;
 }
 .b-29 {
-  background-position: -44px -308px;
+  background-position: -45px -58px;
 }
 .b-3 {
-  background-position: -44px -336px;
+  background-position: -45px -87px;
 }
 .b-30 {
-  background-position: -44px -364px;
+  background-position: -45px -116px;
 }
 .b-31 {
-  background-position: -44px -392px;
+  background-position: -45px -145px;
 }
 .b-32 {
-  background-position: -44px -420px;
+  background-position: -45px -174px;
 }
 .b-33 {
-  background-position: -44px -448px;
+  background-position: -45px -203px;
 }
 .b-34 {
-  background-position: -44px -476px;
+  background-position: -45px -232px;
 }
 .b-35 {
-  background-position: -44px -504px;
+  background-position: -45px -261px;
 }
 .b-36 {
-  background-position: -44px -532px;
+  background-position: -45px -290px;
 }
 .b-37 {
-  background-position: -44px -560px;
+  background-position: -45px -319px;
 }
 .b-38 {
-  background-position: -44px -588px;
+  background-position: -45px -348px;
 }
 .b-39 {
-  background-position: -44px -616px;
+  background-position: -45px -377px;
 }
 .b-4 {
-  background-position: -44px -644px;
+  background-position: -45px -406px;
 }
 .b-40 {
-  background-position: -44px -672px;
+  background-position: -45px -435px;
 }
 .b-41 {
-  background-position: -44px -700px;
+  background-position: -45px -464px;
 }
 .b-42 {
-  background-position: -44px -728px;
+  background-position: -45px -493px;
 }
 .b-43 {
-  background-position: -44px -756px;
+  background-position: -45px -522px;
 }
 .b-44 {
-  background-position: -44px -784px;
+  background-position: -45px -551px;
 }
 .b-45 {
-  background-position: -44px -812px;
+  background-position: -45px -580px;
 }
 .b-46 {
-  background-position: -44px -840px;
+  background-position: -45px -609px;
+}
+.b-47 {
+  background-position: -45px -638px;
 }
 .b-48 {
-  background-position: -44px -868px;
+  background-position: -45px -667px;
 }
 .b-49 {
-  background-position: -44px -896px;
+  background-position: -45px -696px;
 }
 .b-5 {
-  background-position: -44px -924px;
+  background-position: -45px -725px;
 }
 .b-50 {
-  background-position: -44px -952px;
+  background-position: -45px -754px;
 }
 .b-51 {
-  background-position: -44px -980px;
+  background-position: -45px -783px;
+}
+.b-52 {
+  background-position: -45px -812px;
 }
 .b-53 {
-  background-position: -88px 0px;
+  background-position: -45px -841px;
 }
 .b-54 {
-  background-position: -88px -28px;
+  background-position: -45px -870px;
 }
 .b-55 {
-  background-position: -88px -56px;
+  background-position: -45px -899px;
 }
 .b-56 {
-  background-position: -88px -84px;
+  background-position: -45px -928px;
 }
 .b-57 {
-  background-position: -88px -112px;
+  background-position: -45px -957px;
 }
 .b-58 {
-  background-position: -88px -140px;
+  background-position: -45px -986px;
 }
 .b-59 {
-  background-position: -88px -168px;
+  background-position: -90px 0px;
 }
 .b-6 {
-  background-position: -88px -196px;
+  background-position: -90px -29px;
 }
 .b-60 {
-  background-position: -88px -224px;
+  background-position: -90px -58px;
 }
 .b-61 {
-  background-position: -88px -252px;
+  background-position: -90px -87px;
 }
 .b-62 {
-  background-position: -88px -280px;
+  background-position: -90px -116px;
 }
 .b-63 {
-  background-position: -88px -308px;
+  background-position: -90px -145px;
 }
 .b-64 {
-  background-position: -88px -336px;
+  background-position: -90px -174px;
 }
 .b-65 {
-  background-position: -88px -364px;
+  background-position: -90px -203px;
 }
 .b-66 {
-  background-position: -88px -392px;
+  background-position: -90px -232px;
 }
 .b-67 {
-  background-position: -88px -420px;
+  background-position: -90px -261px;
 }
 .b-68 {
-  background-position: -88px -448px;
+  background-position: -90px -290px;
 }
 .b-69 {
-  background-position: -88px -476px;
+  background-position: -90px -319px;
 }
 .b-7 {
-  background-position: -88px -504px;
+  background-position: -90px -348px;
 }
 .b-70 {
-  background-position: -88px -532px;
+  background-position: -90px -377px;
 }
 .b-71 {
-  background-position: -88px -560px;
+  background-position: -90px -406px;
 }
 .b-72 {
-  background-position: -88px -588px;
+  background-position: -90px -435px;
 }
 .b-73 {
-  background-position: -88px -616px;
+  background-position: -90px -464px;
 }
 .b-74 {
-  background-position: -88px -644px;
+  background-position: -90px -493px;
 }
 .b-75 {
-  background-position: -88px -672px;
+  background-position: -90px -522px;
 }
 .b-76 {
-  background-position: -88px -700px;
+  background-position: -90px -551px;
 }
 .b-77 {
-  background-position: -88px -728px;
+  background-position: -90px -580px;
 }
 .b-78 {
-  background-position: -88px -756px;
+  background-position: -90px -609px;
 }
 .b-79 {
-  background-position: -88px -784px;
+  background-position: -90px -638px;
 }
 .b-8 {
-  background-position: -88px -812px;
+  background-position: -90px -667px;
 }
 .b-80 {
-  background-position: -88px -840px;
+  background-position: -90px -696px;
 }
 .b-81 {
-  background-position: -88px -868px;
+  background-position: -90px -725px;
 }
 .b-82 {
-  background-position: -88px -896px;
+  background-position: -90px -754px;
 }
 .b-83 {
-  background-position: -88px -924px;
+  background-position: -90px -783px;
 }
 .b-84 {
-  background-position: -88px -952px;
+  background-position: -90px -812px;
 }
 .b-85 {
-  background-position: -88px -980px;
+  background-position: -90px -841px;
 }
 .b-86 {
-  background-position: -132px 0px;
+  background-position: -90px -870px;
 }
 .b-87 {
-  background-position: -132px -28px;
+  background-position: -90px -899px;
 }
 .b-88 {
-  background-position: -132px -56px;
+  background-position: -90px -928px;
 }
 .b-89 {
-  background-position: -132px -84px;
+  background-position: -90px -957px;
 }
 .b-9 {
-  background-position: -132px -112px;
+  background-position: -90px -986px;
 }
 .b-90 {
-  background-position: -132px -140px;
+  background-position: -135px 0px;
 }
 .b-91 {
-  background-position: -132px -168px;
+  background-position: -135px -29px;
 }
 .b-92 {
-  background-position: -132px -196px;
+  background-position: -135px -58px;
 }
 .b-93 {
-  background-position: -132px -224px;
+  background-position: -135px -87px;
 }
 .b-94 {
-  background-position: -132px -252px;
+  background-position: -135px -116px;
 }
 .b-95 {
-  background-position: -132px -280px;
+  background-position: -135px -145px;
 }
 .b-96 {
-  background-position: -132px -308px;
+  background-position: -135px -174px;
 }
 .b-97 {
-  background-position: -132px -336px;
-}
-.b-99 {
-  background-position: -132px -364px;
+  background-position: -135px -203px;
 }
 body,
 html {
